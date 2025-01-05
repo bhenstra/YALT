@@ -1,6 +1,6 @@
-# Project Name: 
-LaTeX Template
-(Yet Another LaTeX Document Template)
+# Project Name:   
+# LaTeX Template   
+#(Yet Another LaTeX Document Template)   
 
 ## Description
 This LaTeX project provides a template for generating documents with a front page. It is designed to create a report structure, including a title page, content, and additional sections. The document is built using the `report` class and can be compiled with LuaLaTeX for better font support.
