@@ -1,0 +1,51 @@
+\chapter{Introduction}
+
+In this document, we will explore the fundamental principles of LaTeX and its application in creating structured, high-quality documents. The goal of this template is to demonstrate the basic features of LaTeX while offering a foundation for professional document formatting. Throughout the document, we will focus on clarity, readability, and efficiency.
+
+Additionally, the structure of the document has been designed to accommodate a variety of content, including text, mathematical expressions, and graphics. By following this structure, users can easily adapt the template for their own needs, whether for academic, professional, or personal projects.
+
+This introductory section will provide an overview of the document’s structure and the purpose of the content that follows. We will cover the essentials first, followed by more advanced topics that may require deeper understanding or specialized knowledge.
+
+\input{sections/test.tex}
+
+\newpage
+
+\chapter{LaTeX}
+
+\section{History}
+LaTeX is a typesetting system widely used for producing high-quality documents, particularly in the fields of academia, science, and engineering. It was originally developed by Leslie Lamport in the early 1980s as a high-level interface for the TeX typesetting system, which itself was created by Donald Knuth in the late 1970s. TeX, the foundation of LaTeX, was designed to provide precise control over document layout and typographic quality.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\textwidth]{sources/FrontImg.png} % Breedte op 60% van tekstbreedte
+	\caption{An example of an image.}
+	\label{fig:frontimage}
+\end{figure}
+
+TeX was developed by Donald Knuth as part of his project to improve the typesetting of his own books, particularly *The Art of Computer Programming*. Knuth sought to create a typesetting system that could produce professional-quality printed works without relying on proprietary software or expensive typesetting machines. The goal was to provide an open-source alternative to the traditional typesetting systems used in academia.
+
+Lamport's LaTeX, built on top of TeX, aimed to simplify the user experience by providing macros and predefined styles for common document elements such as articles, reports, and books. This allowed users to focus on the content of their documents while LaTeX handled the layout and formatting automatically. As a result, LaTeX quickly became popular in academic circles, particularly for documents that contained complex mathematical formulas, as TeX’s precise mathematical typesetting capabilities were unmatched at the time.
+
+One of the core features of LaTeX is its emphasis on separating content from presentation. Instead of focusing on the layout as one might in word processors, users write LaTeX documents using plain text with markup commands for structure and formatting. This makes it ideal for collaborative projects, as the structure of the document is separate from its appearance. LaTeX documents can be easily shared, and the formatting will remain consistent across different platforms.
+
+LaTeX’s extensibility is another key reason for its success. Over the years, many packages have been developed that extend its functionality, allowing users to add advanced features such as bibliographies, citation management, table of contents, cross-referencing, and more. These packages make LaTeX a highly flexible and powerful tool for a wide variety of document types.
+
+Despite its steep learning curve for new users, LaTeX continues to be a preferred choice for those who require precision and high-quality output. It is especially favored by mathematicians, engineers, and researchers for its ability to handle complex formulas, cross-referencing, and the production of professional-level documents.
+
+\section{Equation}
+
+Here is the famous equation in inline mode: $E = mc^2$.
+
+And here it is displayed on its own line:
+\[
+E = mc^2
+\]
+
+"The equation $E = mc^2$ expresses a profound truth about the relationship between mass and energy. It tells us that mass can be converted into energy and vice versa. This insight arose from the theory of special relativity, and it fundamentally altered our understanding of the universe. I never claimed to have invented the equation; it was simply a natural consequence of the laws of physics as I understood them."
+
+"What is remarkable about this equation is not just its simplicity, but its far-reaching implications. It led to the development of technologies like nuclear energy, and it continues to be a cornerstone of modern physics."
+
+"However, while $E = mc^2$ is often quoted as my 'most famous' equation, it represents just a small part of a much deeper theory. The full beauty of relativity is captured in its more complex mathematical formulations, where space and time themselves are intertwined in ways that were once unimaginable."
+
+\section{Some text}
+\input{sections/test.tex}

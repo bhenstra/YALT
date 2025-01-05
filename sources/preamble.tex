@@ -1,0 +1,175 @@
+% File: preamble.tex
+
+% See README.TXT for an explanation of the structure and compilation instructions.
+
+% Document Geometry
+\newif\ifletter
+% Uncomment the next line for Letter paper:
+% \lettertrue
+
+\ifletter
+\usepackage[letterpaper,top=2.5cm,bottom=2.0cm,left=3cm,right=3cm]{geometry}
+\else
+\usepackage[a4paper,top=2.5cm,bottom=2.0cm,left=3cm,right=3cm]{geometry}
+\fi
+
+\usepackage[german, french, spanish, dutch, english]{babel} % Load languages for hyphenation - set your default language last; just reorder as needed
+\addto\captionsgerman{\renewcommand{\chaptername}{}} % Remove "Chapter" prefix (applies to headers in German)
+\addto\captionsfrench{\renewcommand{\chaptername}{}} % Remove "Chapter" prefix (applies to headers in French)
+\addto\captionsspanish{\renewcommand{\chaptername}{}} % Remove "Chapter" prefix (applies to headers in Spanish)
+\addto\captionsdutch{\renewcommand{\chaptername}{}} % Remove "Chapter" prefix (applies to headers in Dutch)
+
+% Font and Math Settings
+\usepackage{fontspec} % For custom fonts
+\usepackage{unicode-math} % For math fonts
+\usepackage{fontawesome5} % For icons
+
+% Graphics and Hyperlinks
+\usepackage{graphicx} % For including images
+\usepackage[hyperfootnotes=false]{hyperref} % Hyperlinks (disables footnote links)
+
+% Table of Contents customization and section formatting
+\usepackage{tocloft}  % Customization for TOC
+\usepackage{titlesec} % For better section heading formatting
+
+% Fancy headers and footers
+\usepackage{fancyhdr}
+
+% Set Header Height
+\setlength{\headheight}{16pt}
+
+% Alignment
+\sloppy  % This makes LaTeX less strict about adjusting the line alignment
+
+% Penalties
+\widowpenalty=10000  % Disables widow lines
+\clubpenalty=10000   % Disables club lines
+\raggedbottom
+\looseness=-1  % Try to avoid breaking paragraphs
+\hyphenpenalty=10000   % Prevents word hyphenation entirely
+\exhyphenpenalty=10000 % Prevents hyphenation at the end of a word
+\tolerance=1000
+
+% Font Settings
+\setmainfont{IBMPlexSerif-Regular.ttf}[
+BoldFont={IBMPlexSerif-Bold.ttf},
+ItalicFont={IBMPlexSerif-Italic.ttf}
+]
+\setsansfont{IBMPlexSans-Regular.ttf}[
+BoldFont={IBMPlexSans-Bold.ttf},
+ItalicFont={IBMPlexSans-Italic.ttf}
+]
+\setmonofont{IBMPlexMono-Regular.ttf}[
+BoldFont={IBMPlexMono-Bold.ttf},
+ItalicFont={IBMPlexMono-Italic.ttf}
+]
+
+% Load Variables
+\input{sources/variables.tex}
+
+% Paragraph and spacing adjustments
+\setlength{\parindent}{0pt}    % No paragraph indentation
+\setlength{\parskip}{1em}      % Vertical space between paragraphs
+
+% Chapter settings (no "Chapter" name)
+\renewcommand{\thechapter}{\arabic{chapter}}  
+\renewcommand{\chaptername}{}  % Remove "Chapter" prefix
+\titleformat{\chapter}[hang]{\normalfont\huge\bfseries}{\thechapter}{1em}{}  
+\titlespacing*{\chapter}{0pt}{0pt}{1em}  % Adjust chapter title spacing
+
+% Section formatting
+\titleformat{\section}[hang]{\normalfont\Large\bfseries}{\thesection}{1em}{}  
+\titleformat{\subsection}[hang]{\normalfont\large\bfseries}{\thesubsection}{1em}{}  
+\titleformat{\subsubsection}[hang]{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}  
+\titleformat{\paragraph}[hang]{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}  
+
+\titlespacing*{\section}{0pt}{1em}{1em}  % Space before section titles
+
+% Fancy headers and footers
+
+% Custom pagestyle for TOC (no header)
+\fancypagestyle{noheaderstyle}{
+	\fancyhf{} % Clear headers and footers
+	\renewcommand{\headrulewidth}{0pt} % No horizontal line
+	\fancyfoot[C]{\thepage} % Page number in the footer
+}
+
+% Main pagestyle for the rest of the document
+\fancypagestyle{mainstyle}{
+	\fancyhf{} % Clear headers and footers
+	\fancyhead[L]{\ifnum\value{chapter}=0
+		\textbf{\@chaptertitle} % For unnumbered chapters
+		\else
+		\textbf{\nouppercase{\leftmark}} % For numbered chapters
+		\fi} 
+	\fancyhead[C]{} % Center header
+	\fancyhead[R]{} % Right header
+	\renewcommand{\headrulewidth}{0.4pt} % Horizontal line under the header
+	\fancyfoot[C]{\thepage} % Page number in the footer
+}
+
+% Store the chapter title for unnumbered chapters
+\newcommand{\chapterTitleNoNumber}[1]{\def\@chaptertitle{#1}\chapter*{#1}\markboth{#1}{}}
+
+% Front Page Command
+\newcommand{\frontpage}{%
+	\thispagestyle{empty}
+	\begin{titlepage}
+		\centering
+		{\Huge\bfseries\sffamily \doctitle\par}
+		\vspace{2cm}
+		{\Large\bfseries\sffamily \docsubtitle\par}
+		\vspace{2cm}
+		\includegraphics[width=0.8\textwidth]{\frontimage}\par
+		\vfill
+		{\large\sffamily \docauthor}
+	\end{titlepage}
+}
+
+% Blank Page Command
+\newcommand{\blankpage}{%
+	\newpage
+	\thispagestyle{empty}
+	\null\vfill
+}
+
+% Title Page Command
+\newcommand{\doctitlepage}{%
+	\thispagestyle{empty}
+	\begin{titlepage}
+		\centering
+		{\Huge\bfseries\sffamily \doctitle\par}
+		\vspace{1cm}
+		{\Large\bfseries\sffamily \docsubtitle\par}
+		\vspace{1cm}
+		\noindent\rule{\textwidth}{1.2pt}
+		\vskip 0.5ex
+		{\normalsize \docabstract\par}
+		\noindent\rule{\textwidth}{1.2pt}
+		\vfill
+		{\Huge \faBookReader\par}
+		\vspace{0.15cm}
+		{\large\sffamily \docstate\par}
+		\vspace{0.6cm}
+		{\Huge \faCalendar*[regular]\par}
+		\vspace{0.15cm}
+		{\large\sffamily \docdate\par}
+		\vspace{0.6cm}
+		{\Huge \faUserEdit\par}
+		\vspace{0.15cm}
+		{\large\sffamily \docauthor\par}
+	\end{titlepage}
+	\clearpage
+}
+
+% Page numbering setup
+\pagenumbering{arabic} % Default numbering for pages after the title page
+\pagestyle{mainstyle}  % Use the main page style
+
+% Appendix numbering (A, B, C...) for appendices
+\newcommand{\appendices}{
+	\appendix
+	\renewcommand{\thechapter}{\Alph{chapter}} % Use letters for chapter numbering (A, B, C...)
+	\setcounter{chapter}{0}  % Reset chapter counter for appendices
+	\pagenumbering{arabic} % Continue Arabic numerals for page numbering in appendices
+}

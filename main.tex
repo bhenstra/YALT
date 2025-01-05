@@ -1,0 +1,70 @@
+% File: main.tex
+% See README.MD for an explanation of the structure and compilation instructions.
+
+% !TEX program = lualatex
+% !TEX root = main.tex
+
+% Document Class (switch between A4 and Letter by commenting/uncommenting the following two lines as required):
+	\documentclass[a4paper,12pt]{report}
+	% \documentclass[letterpaper,12pt]{report}
+
+% Load Preamble
+\input{sources/preamble.tex}
+
+\begin{document}
+	
+	% Front Page
+	\frontpage
+	
+	% Blank Page
+	\blankpage
+	
+	% Title Page
+	\doctitlepage
+	
+	% Blank Page
+	\blankpage
+	
+	% Set mainstyle for the rest of the document
+	\pagestyle{mainstyle}
+	
+	% Introduction, like foreword, preface...
+	\input{sections/intro.tex}
+	\newpage
+
+	% Blank Page
+    \blankpage
+    \newpage
+	
+	% Table of Contents (without headers/footers)
+	\pagestyle{noheaderstyle}  % No headers, no footers
+	\pagenumbering{gobble} % No page numbers for TOC
+	\tableofcontents
+	\newpage
+	
+	% Start Arabic numerals for page numbering
+	\pagestyle{mainstyle}
+	\pagenumbering{arabic}  % Use Arabic numerals for page numbering
+	
+	% Blank Page
+	\blankpage
+	
+	% Chapters
+	\setcounter{page}{0}  % Start page numbering at 1 for the chapters
+	\input{sections/chapters.tex}
+	
+	% Blank Page
+	\blankpage
+	
+	% Appendices: Set chapter numbering to letters (A, B, C...)
+	\appendices
+	
+	% Reset page counter to 1 and change numbering to Roman
+	\setcounter{page}{0}  % Start page numbering at 1 for the appendices
+	\renewcommand{\thepage}{\Roman{page}}  % Set page numbering to Roman numerals (I, II, III, ...)
+	\input{sections/appendices.tex}
+	
+	% Blank Page
+	\blankpage
+	
+\end{document}

@@ -1,0 +1,37 @@
+% File: variables.tex
+
+% See README.TXT for an explanation of the structure and compilation instructions.
+
+% Document Title
+\newcommand{\doctitle}{LaTeX Template}%
+
+% Sub Title
+\newcommand{\docsubtitle}{Yet Another \LaTeX ~Document Template}%
+
+% Document Version, status and audiance or usage
+\newcommand{\docstate}{Version 0.1 \\ \textit{Draft for internal review}}
+
+% Front Image
+\newcommand{\frontimage}{sources/FrontImg.png}% Path to the image displayed on the Front Page
+
+% Document Abstract
+\newcommand{\docabstract}{%
+	\noindent\textbf{Abstract} \\ \vspace{1em}%
+	This document template provides a structured approach for creating reports using LaTeX. It is designed for general-purpose use, providing sections such as for the title, introduction, and conclusion. \\ \vspace{1em}%
+	This template uses the \texttt{report} document class and is optimized for LuaLaTeX compilation. \\ \vspace{1em}%
+	The goal of this template is to facilitate efficient document creation with a focus on clarity, readability, and professional formatting. It offers a clean layout, customizable fonts, and support for both simple and complex mathematical expressions. \\ \vspace{1em}%
+	The document structure can be easily adapted to fit a variety of use cases.%
+}%
+
+% Author
+\newcommand{\docauthor}{Bouke Jasper Henstra}%
+
+% Set the title of the Table of Contents
+\renewcommand{\contentsname}{Table of Contents}
+
+% Date
+\newcommand{\docdate}{%
+	\ifnum\day<10 0\fi\the\day-%
+	\ifnum\month<10 0\fi\the\month-%
+	\the\year%
+}%
