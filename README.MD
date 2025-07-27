@@ -35,8 +35,9 @@ These files are located in the `sections` folder.
 
 
 ## Compiling Instructions
-1. Make sure you have LaTeX installed (preferably LuaLaTeX for enhanced font support).
-2. To compile the document, press the 'Build & View' button in TeXstudio.
+1. Install the fonts (on Debian: cd into 'sources', copy them to e.g. '/usr/local/share/fonts', then run 'fc-cache -f -v').
+2. Make sure you have LaTeX installed (preferably LuaLaTeX for enhanced font support).
+3. To compile the document, press the 'Build & View' button in TeXstudio.
 
 ---
 
