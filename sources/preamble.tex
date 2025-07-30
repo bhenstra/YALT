@@ -40,14 +40,17 @@
 
 % Alignment
 \sloppy  % This makes LaTeX less strict about adjusting the line alignment
+\usepackage{microtype}
 
 % Penalties
 \widowpenalty=10000  % Disables widow lines
 \clubpenalty=10000   % Disables club lines
 \raggedbottom
 \looseness=-1  % Try to avoid breaking paragraphs
-\hyphenpenalty=10000   % Prevents word hyphenation entirely
-\exhyphenpenalty=10000 % Prevents hyphenation at the end of a word
+%\hyphenpenalty=10000   % Prevents word hyphenation entirely
+ \hyphenpenalty=5000
+%\exhyphenpenalty=10000 % Prevents hyphenation at the end of a word
+ \exhyphenpenalty=5000
 \tolerance=1000
 
 % Font Settings
@@ -122,7 +125,7 @@ ItalicFont={IBMPlexMono-Italic.ttf}
 		\vspace{2cm}
 		\includegraphics[width=0.8\textwidth]{\frontimage}\par
 		\vfill
-		{\large\sffamily \docauthor}
+		{\large \sffamily \docauthor}
 	\end{titlepage}
 }
 
